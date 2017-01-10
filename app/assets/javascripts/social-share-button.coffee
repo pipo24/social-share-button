@@ -53,6 +53,9 @@ window.SocialShareButton =
         SocialShareButton.openUrl("https://www.xing.com/spi/shares/new?url=#{url}")
       when "vkontakte"
         SocialShareButton.openUrl("http://vk.com/share.php?url=#{url}&title=#{title}&image=#{img}")
+      when "whatsapp"
+        action = 'share/whatsapp/share'
+        location.href = "whatsapp://send?text=#{title} #{url}"
       when "wechat"
         throw new Error("You should require social-share-button/wechat to your application.js") unless window.SocialShareWeChatButton
         window.SocialShareWeChatButton.qrcode
