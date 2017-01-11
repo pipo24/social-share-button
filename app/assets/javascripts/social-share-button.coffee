@@ -56,6 +56,9 @@ window.SocialShareButton =
       when "whatsapp"
         action = 'share/whatsapp/share'
         location.href = "whatsapp://send?text=#{title} #{url}"
+      when "fb_messenger"
+        action = 'share/fb-messenger/share'
+        location.href = "fb-messenger://share/?link=#{url}"
       when "wechat"
         throw new Error("You should require social-share-button/wechat to your application.js") unless window.SocialShareWeChatButton
         window.SocialShareWeChatButton.qrcode
