@@ -23,6 +23,8 @@ This is a gem to helper you quick create a share feature in you Rails apps.
 * Xing
 * Reddit
 * Hacker News
+* Whatsapp (mobile only)
+* FB Messenger
 
 ## Screenshot
 
