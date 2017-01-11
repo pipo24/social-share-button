@@ -55,6 +55,8 @@ window.SocialShareButton =
         SocialShareButton.openUrl("http://vk.com/share.php?url=#{url}&title=#{title}&image=#{img}")
       when "fb_messenger"
         SocialShareButton.openUrl("fb-messenger://share/?link=#{url}")
+      when "blogger"
+        SocialShareButton.openUrl("https://www.blogger.com/blog-this.g?u=#{url}&n=#{title}&t=#{desc}")
       when "whatsapp"
         action = 'share/whatsapp/share'
         location.href = "whatsapp://send?text=#{title} #{url}"
