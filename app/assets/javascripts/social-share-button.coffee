@@ -12,7 +12,7 @@ window.SocialShareButton =
     $parent = $(el).parent()
     title = encodeURIComponent($(el).data(site + '-title') || $parent.data('title') || '')
     img = encodeURIComponent($parent.data("img") || '')
-    url = encodeURIComponent($parent.data("url") || '')
+    url = encodeURIComponent($(el).data(site + '-url') || $parent.data("url") || '')
     via = encodeURIComponent($parent.data("via") || '')
     desc = encodeURIComponent($parent.data("desc") || ' ')
 
@@ -32,15 +32,17 @@ window.SocialShareButton =
         hashtags = encodeURIComponent($(el).data(site + '-hashtags') || $parent.data('hashtags') || '')
         via_str = ''
         via_str = "&via=#{via}" if via.length > 0
-        SocialShareButton.openUrl("https://twitter.com/intent/tweet?url=#{url}%3Futm_medium=social%26utm_source=Twitter%26utm_content=blog_share&text=#{title}&hashtags=#{hashtags}#{via_str}", 650, 300)
+#         url = url + "%3Futm_medium=social%26utm_source=Twitter%26utm_campaign=blog_share"
+        SocialShareButton.openUrl("https://twitter.com/intent/tweet?url=#{url}&text=#{title}&hashtags=#{hashtags}#{via_str}", 650, 300)
       when "douban"
         SocialShareButton.openUrl("http://shuo.douban.com/!service/share?href=#{url}&name=#{title}&image=#{img}&sel=#{desc}", 770, 470)
       when "facebook"
-        SocialShareButton.openUrl("http://www.facebook.com/sharer/sharer.php?u=#{url}%3Futm_medium=social%26utm_source=Facebook%26utm_content=blog_share&display=popup&title=#{title}&description=#{desc}", 555, 400)
+        url = url + "%3Futm_medium=social%26utm_source=Facebook%26utm_campaign=blog_share"
+        SocialShareButton.openUrl("http://www.facebook.com/sharer/sharer.php?u=#{url}&display=popup&title=#{title}&description=#{desc}", 555, 400)
       when "qq"
         SocialShareButton.openUrl("http://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=#{url}&title=#{title}&pics=#{img}&summary=#{desc}&site=#{appkey}")
       when "google_plus"
-        SocialShareButton.openUrl("https://plus.google.com/share?url=#{url}")
+#         SocialShareButton.openUrl("https://plus.google.com/share?url=#{url}")
       when "google_bookmark"
         SocialShareButton.openUrl("https://www.google.com/bookmarks/mark?op=edit&output=popup&bkmk=#{url}&title=#{title}")
       when "delicious"
