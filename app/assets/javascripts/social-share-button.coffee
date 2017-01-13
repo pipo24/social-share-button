@@ -32,11 +32,11 @@ window.SocialShareButton =
         hashtags = encodeURIComponent($(el).data(site + '-hashtags') || $parent.data('hashtags') || '')
         via_str = ''
         via_str = "&via=#{via}" if via.length > 0
-        SocialShareButton.openUrl("https://twitter.com/intent/tweet?url=#{url}?utm_medium=social&utm_source=Twitter&utm_content=blog_share&text=#{title}&hashtags=#{hashtags}#{via_str}", 650, 300)
+        SocialShareButton.openUrl("https://twitter.com/intent/tweet?url=#{url}%3Futm_medium=social%26utm_source=Twitter%26utm_content=blog_share&text=#{title}&hashtags=#{hashtags}#{via_str}", 650, 300)
       when "douban"
         SocialShareButton.openUrl("http://shuo.douban.com/!service/share?href=#{url}&name=#{title}&image=#{img}&sel=#{desc}", 770, 470)
       when "facebook"
-        SocialShareButton.openUrl("http://www.facebook.com/sharer/sharer.php?u=#{url}?utm_medium=social&utm_source=Facebook&utm_content=blog_share&display=popup&title=#{title}&description=#{desc}", 555, 400)
+        SocialShareButton.openUrl("http://www.facebook.com/sharer/sharer.php?u=#{url}%3Futm_medium=social%26utm_source=Facebook%26utm_content=blog_share&display=popup&title=#{title}&description=#{desc}", 555, 400)
       when "qq"
         SocialShareButton.openUrl("http://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=#{url}&title=#{title}&pics=#{img}&summary=#{desc}&site=#{appkey}")
       when "google_plus"
