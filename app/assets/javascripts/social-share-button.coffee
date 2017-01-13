@@ -32,17 +32,16 @@ window.SocialShareButton =
         hashtags = encodeURIComponent($(el).data(site + '-hashtags') || $parent.data('hashtags') || '')
         via_str = ''
         via_str = "&via=#{via}" if via.length > 0
-#         url = url + "%3Futm_medium=social%26utm_source=Twitter%26utm_campaign=blog_share"
+        url = url + "%3Futm_medium=social%26utm_source=Twitter%26utm_campaign=blog_share"
         SocialShareButton.openUrl("https://twitter.com/intent/tweet?url=#{url}&text=#{title}&hashtags=#{hashtags}#{via_str}", 650, 300)
       when "douban"
         SocialShareButton.openUrl("http://shuo.douban.com/!service/share?href=#{url}&name=#{title}&image=#{img}&sel=#{desc}", 770, 470)
       when "facebook"
-        url = url + "%3Futm_medium=social%26utm_source=Facebook%26utm_campaign=blog_share"
         SocialShareButton.openUrl("http://www.facebook.com/sharer/sharer.php?u=#{url}&display=popup&title=#{title}&description=#{desc}", 555, 400)
       when "qq"
         SocialShareButton.openUrl("http://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=#{url}&title=#{title}&pics=#{img}&summary=#{desc}&site=#{appkey}")
       when "google_plus"
-#         SocialShareButton.openUrl("https://plus.google.com/share?url=#{url}")
+        SocialShareButton.openUrl("https://plus.google.com/share?url=#{url}")
       when "google_bookmark"
         SocialShareButton.openUrl("https://www.google.com/bookmarks/mark?op=edit&output=popup&bkmk=#{url}&title=#{title}")
       when "delicious"
