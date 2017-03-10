@@ -5,6 +5,7 @@ window.SocialShareButton =
     opt = "width=#{width},height=#{height},left=#{left},top=#{top},menubar=no,status=no,location=no"
     window.open(url, 'popup', opt)
     false
+    aaa
 
   share : (el) ->
     site = $(el).data('site')
