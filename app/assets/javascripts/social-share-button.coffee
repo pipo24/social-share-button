@@ -15,6 +15,7 @@ window.SocialShareButton =
     url = encodeURIComponent($(el).data(site + '-url') || $parent.data("url") || '')
     via = encodeURIComponent($parent.data("via") || '')
     desc = encodeURIComponent($parent.data("desc") || ' ')
+    number = encodeURIComponent($parent.data("number") || ' ')
 
     # tracking click events if google analytics enabled
     ga = window[window['GoogleAnalyticsObject'] || 'ga']
@@ -24,6 +25,11 @@ window.SocialShareButton =
     if url.length == 0
       url = encodeURIComponent(location.href)
     switch site
+      when "sms"
+        if getMobileOperatingSystem() == "iOS"
+          location.href = "sms:#{number}&body=#{desc}"
+        else
+          location.href = "sms:#{number}?body=#{desc}"
       when "email"
         location.href = "mailto:?to=&subject=#{title}&body=#{url}%3Futm_medium=social%26utm_source=Email"
       when "weibo"
@@ -102,3 +108,15 @@ window.SocialShareButton =
       when "hacker_news"
         SocialShareButton.openUrl("http://news.ycombinator.com/submitlink?u=#{url}&t=#{title}", 770, 500)
     false
+
+getMobileOperatingSystem = ->
+  userAgent = navigator.userAgent or navigator.vendor or window.opera
+  # Windows Phone must come first because its UA also contains "Android"
+  if /windows phone/i.test(userAgent)
+    return 'Windows Phone'
+  if /android/i.test(userAgent)
+    return 'Android'
+  # iOS detection from: http://stackoverflow.com/a/9039885/177710
+  if /iPad|iPhone|iPod/.test(userAgent) and !window.MSStream
+    return 'iOS'
+  'unknown'

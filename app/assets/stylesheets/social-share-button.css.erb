@@ -77,6 +77,16 @@
 
 .social-share-button .ssb-whatsapp {
   background-image: url(<%= asset_path('social-share-button/whatsapp.svg') %>);
+  @media screen and (min-width: 770px) {
+    display: none;
+  }
+}
+
+.social-share-button .ssb-sms {
+  background-image: url(<%= asset_path('social-share-button/sms.svg') %>);
+  @media screen and (min-width: 770px) {
+    display: none;
+  }
 }
 
 .social-share-button .ssb-fb_messenger {
