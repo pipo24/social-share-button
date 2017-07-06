@@ -28,6 +28,7 @@ module SocialShareButton
     # - hacker_news
     # - whatsapp
     # - fb_messenger
+    # - sms
     attr_accessor :allow_sites
 
     def initialize
